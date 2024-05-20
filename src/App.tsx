@@ -1,25 +1,27 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Form from './components/Form';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Chat from './components/Chat';
+import { Provider } from 'react-redux';
+import {store} from './state/store';
 
 function App() {
   return (
+    <Provider store={store}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Grid container>
+      <Grid item xs={6}>
+      <Form/>
+      </Grid>
+      <Grid item xs={6}>
+        <Chat/>
+      </Grid>
+      </Grid>
     </div>
+    </Provider>
   );
 }
 
